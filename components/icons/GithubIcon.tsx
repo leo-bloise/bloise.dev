@@ -5,5 +5,5 @@ type Props = {
     height: number;
 }
 export default function GithubIcon({ height, width }: Props) {
-    return <Image src={"/github-mark/github-mark-white.png"} width={width} height={height} alt="Github"></Image>
+    return <Image src={"/github-mark/github-mark-white.png"} className="w-auto h-auto" width={width} height={height} alt="Github"></Image>
 }
