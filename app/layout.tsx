@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Menu from "@/components/Menu";
 
 export const metadata: Metadata = {
   title: "ApoloCode36",
@@ -12,11 +13,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" 
+      className="bg-vscode-background font-gabarito h-[100vh]">
       <body
-        className={`antialiased`}
+        className='antialiased'
       >
-        {children}
+        <Menu />
+        <div className="p-5">
+          {children}
+        </div>
       </body>
     </html>
   );
