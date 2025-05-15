@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Menu from "@/components/Menu";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "ApoloCode36",
@@ -18,7 +19,14 @@ export default function RootLayout({
       <body
         className='antialiased'
       >
-        <Menu />
+        <Menu links={[
+          {
+            image: <Image src={"/book.webp"} width={25} height={25} className="mt-1" alt="Blog" />,
+            label: 'Blog',
+            link: ''
+          }
+        ]}/>
+        <div className="h-[45px]"></div>
         <div className="p-5">
           {children}
         </div>

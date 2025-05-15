@@ -1,3 +1,4 @@
+import ArticlesHighlight from "@/components/ArticlesHighlight";
 import Paragraph from "@/components/Paragraph"
 import Projects from "@/components/Projects";
 import Skeleton from "@/components/Skeleton";
@@ -18,7 +19,7 @@ export default function Home() {
             I like to watch animes, hang out with friends in Discord and re-create stuff from scratch.
           </Paragraph>
         </header>
-        <main>
+        <main className="flex flex-col gap-y-4">
           <section>
             <header>
               <Subtitle>Projects</Subtitle>
@@ -28,6 +29,15 @@ export default function Home() {
               <Suspense fallback={<Skeleton containerStyle="mt-4" height={150} qtt={3} />}>
                 <Projects />
               </Suspense>
+            </article>
+          </section>
+          <section>
+            <header>
+              <Subtitle>Articles</Subtitle>
+            </header>
+            <article className="mt-4 flex flex-col gap-y-6">
+              <p className="text-vscode-description">Stuff I'm talking about</p>
+              <ArticlesHighlight />
             </article>
           </section>
         </main>

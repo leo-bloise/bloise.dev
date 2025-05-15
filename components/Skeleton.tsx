@@ -12,7 +12,7 @@ export default function Skeleton({ height, qtt = 1, containerStyle = "" }: Props
     }} className="w-full skeleton rounded-md"></div>
     const skeletons: ReactNode[] = [];
     for (let index = 0; index < qtt; index++) {
-        skeletons.push(<Skeleton height={height} />)
+        skeletons.push(<Skeleton key={index} height={height} />)
     }
     return <div className={`flex flex-col gap-y-6 ${containerStyle}`}>
         {skeletons.map(s => s)}
