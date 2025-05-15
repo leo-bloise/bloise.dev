@@ -37,7 +37,9 @@ export default function Home() {
             </header>
             <article className="mt-4 flex flex-col gap-y-6">
               <p className="text-vscode-description">Stuff I'm talking about</p>
-              <ArticlesHighlight />
+              <Suspense fallback={<Skeleton containerStyle="mt-4" height={150} qtt={3} />}>
+                <ArticlesHighlight />
+              </Suspense>
             </article>
           </section>
         </main>

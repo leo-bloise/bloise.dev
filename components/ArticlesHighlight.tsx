@@ -1,28 +1,12 @@
+import useArticleService from "@/server/useArticleService";
 import ArticleItem from "./ArticleItem";
 
-export default function ArticlesHighlight() {
+export default async function ArticlesHighlight() {
+    const articleService = useArticleService();
+    const articles = await articleService.findTopArticles();
     return <div className="border-l-vscode-border border-l-2 p-2">
         <ul className="flex flex-col gap-y-4">
-            <ArticleItem 
-                url=""
-                date={new Date()}
-                title="Enabling Apache ECharts in React for Data Visualization"
-            />
-            <ArticleItem 
-                url=""
-                date={new Date()}
-                title="Enabling Apache ECharts in React for Data Visualization"
-            />
-            <ArticleItem 
-                url=""
-                date={new Date()}
-                title="Enabling Apache ECharts in React for Data Visualization"
-            />
-            <ArticleItem 
-                url=""
-                date={new Date()}
-                title="Enabling Apache ECharts in React for Data Visualization"
-            />
+            {articles.map(article => <ArticleItem key={article.id} date={article.createdAt} title={article.title} url={`/blog/${article.id}`}></ArticleItem>)}
         </ul>
     </div>
 }

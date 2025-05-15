@@ -8,7 +8,8 @@ async function main() {
             content: `
                 # Markdown file2222
                 Markdown file storing some text that sould be parsed to HTML
-            `
+            `,
+            title: 'Teste article'
         }
     });
     console.log(`Article of ID: ${article.id} was created`);

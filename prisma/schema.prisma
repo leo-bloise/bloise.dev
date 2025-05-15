@@ -12,4 +12,5 @@ model Article {
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
   content String
+  title String
 }
