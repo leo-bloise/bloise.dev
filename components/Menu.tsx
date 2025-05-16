@@ -18,14 +18,14 @@ type Props = {
 
 export default function Menu({ links }: Props) {
     const [open, setOpen] = useState(false);
-    return <div className="flex p-4 border-b-[1px] fixed justify-between border-vscode-border w-full bg-vscode-background">
-        <div>
+    return <div className="flex  border-b-[1px] fixed justify-between border-vscode-border md:border-none w-full bg-vscode-background md:p-0">
+        <div className="md:border-vscode-border md:border-b-[1px] p-4 md:w-[20%]">
             <Link className="flex items-center gap-x-4 mt-1" href={"/"}>
                 <Image src={"/ghost.png"} width={25} height={25} alt="Leonardo Bloise" />
                 <h1 className="font-bold text-vscode-foreground">leonardo.dev</h1>
             </Link>
         </div>
-        <ul className="flex gap-x-6">
+        <ul className="flex gap-x-6 md:justify-end md:border-vscode-border md:border-b-[1px] md:w-[60%] pr-10">
             <li onClick={() => setOpen(old => !old)} className="flex gap-x-4 items-center justify-center opacity-[50%] hover:opacity-100 cursor-pointer ease-in-out md:hidden">
                 {open ? <CloseMenu /> : <HamburguerMenu />}
             </li>
