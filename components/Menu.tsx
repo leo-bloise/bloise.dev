@@ -31,21 +31,27 @@ export default function Menu({ links }: Props) {
             </li>
             {links.map(link => {
                 return <li key={link.label} className="hidden md:flex gap-x-4 items-center justify-center opacity-[50%] hover:opacity-100 cursor-pointer ease-in-out">
-                    {link.image}
-                    <span className="text-vscode-foreground text-sm mt-0.5 hidden md:inline">{link.label}</span>
+                    <a href={link.link} className="flex items-center gap-x-4">
+                        {link.image}
+                        <span className="text-vscode-foreground text-sm mt-0.5 hidden md:inline">{link.label}</span>
+                    </a>
                 </li>
             })}
             <li className="flex gap-x-4 items-center justify-center opacity-[50%] hover:opacity-100 cursor-pointer ease-in-out">
-                <GithubIcon width={23} height={23} />
-                <span className="text-vscode-foreground text-sm mt-0.5 hidden md:inline">Projects</span>
+                <a href="https://github.com/leo-bloise" target="_blank" className="flex gap-x-4 items-center">
+                    <GithubIcon width={23} height={23} />
+                    <span className="text-vscode-foreground text-sm mt-0.5 hidden md:inline">Projects</span>
+                </a>
             </li>
         </ul>
         <nav className={`absolute mt-[40px] left-0 bg-vscode-menu-color h-screen w-screen ${open ? "flex" : "hidden"} flex-col items-center pt-8 md:hidden`}>
             <ul className="flex flex-col gap-y-6">
                 {links.map(link => {
                     return <li key={link.label} className="flex items-center gap-x-3">
-                        {link.image}
-                        <span className="text-vscode-foreground font-bold text-sm mt-0.5">{link.label}</span>
+                        <a href={link.link} className="flex items-center gap-x-3">
+                            {link.image}
+                            <span className="text-vscode-foreground font-bold text-sm mt-0.5">{link.label}</span>
+                        </a>
                     </li>
                 })}
             </ul>

@@ -23,7 +23,7 @@ export default function RootLayout({
           {
             image: <Image src={"/book.webp"} width={25} height={25} className="mt-1" alt="Blog" />,
             label: 'Blog',
-            link: ''
+            link: '/blog'
           }
         ]}/>
         <div className="h-[45px]"></div>
