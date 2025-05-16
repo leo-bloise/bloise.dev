@@ -1,3 +1,5 @@
+import { Url } from "next/dist/shared/lib/router/router";
+import InternalLink from "./InternalLink";
 import ExternalLink from "./Link";
 import { TitleSize } from "./titles/TitleSize";
 
@@ -5,6 +7,7 @@ type Props = {
     url: string;
     children: string;
     size?: TitleSize;
+    internal?: boolean;
 }
 
 function adapt(size: TitleSize) {
@@ -18,7 +21,10 @@ function adapt(size: TitleSize) {
     }
 }
 
-export default function SubtitleLink({ children, url, size = TitleSize.BIG}: Props) {
+export default function SubtitleLink({ internal = false, children, url, size = TitleSize.BIG}: Props) {
+    if(internal) return <InternalLink href={url}>
+        <p className={`text-vscode-link hover:underline ${adapt(size)} font-bold`}>{children}</p>
+    </InternalLink>
     return <ExternalLink url={url}>
         <p className={`text-vscode-link hover:underline ${adapt(size)} font-bold`}>{children}</p>
     </ExternalLink>

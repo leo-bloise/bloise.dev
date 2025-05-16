@@ -13,6 +13,7 @@
     --color-vscode-link: #4daafc;
     --color-vscode-description: #9d9d9d;
     --color-vscode-menu-color: #2b2b2b;
+    
     @keyframes waveBackground {
         0% {
             background-position: -100% 0;
@@ -21,9 +22,22 @@
             background-position: 100% 0;
         }
     }
+
+    @keyframes loading {
+        0%, 100% {
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dashoffset: 300;
+        }
+    }
 }
 
 @layer components {
+    .triangle {
+        stroke-dasharray: 100;
+        animation: loading 1s ease-in-out infinite forwards;
+    } 
     .skeleton {
         animation: waveBackground 1.5s linear infinite reverse;
         background: linear-gradient(90deg, var(--color-vscode-border), var(--color-vscode-background), var(--color-vscode-border));
