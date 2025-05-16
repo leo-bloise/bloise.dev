@@ -9,7 +9,7 @@ generated
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-
+*.md
 # testing
 /coverage
 

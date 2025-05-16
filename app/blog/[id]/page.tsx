@@ -1,4 +1,6 @@
-import Title from "@/components/titles/Title";
+
+import MarkdownAdapter from "@/components/markdown/MarkdownAdapter";
+import fs from 'fs';
 import useArticleService from "@/server/useArticleService";
 import { notFound } from "next/navigation";
 
@@ -8,18 +10,24 @@ type Params = {
     }>
 };
 
-export default async function Page({ params } : Params) {
+export default async function Page({ params }: Params) {
     const { id } = await params;
     const articleService = useArticleService();
     const idParsed = Number.parseInt(id, 10)
-    if(Number.isNaN(idParsed) || idParsed <= 0) {
+    if (Number.isNaN(idParsed) || idParsed <= 0) {
         return notFound();
     }
     const article = await articleService.findArticle(idParsed);
-    if(!article) {
+    if (!article) {
         return notFound();
     }
-    return <div>
-        <Title>{article!.title}</Title>
-    </div>
+    const content = fs.readFileSync('./test.md', {
+        encoding: 'utf-8'
+    });
+    return <main>
+        <article>
+            <MarkdownAdapter>{content}</MarkdownAdapter>
+        </article>
+        <section className="hidden"></section>
+    </main>
 }
