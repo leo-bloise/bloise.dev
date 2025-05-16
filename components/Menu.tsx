@@ -18,8 +18,8 @@ type Props = {
 
 export default function Menu({ links }: Props) {
     const [open, setOpen] = useState(false);
-    return <div className="flex  border-b-[1px] fixed justify-between border-vscode-border md:border-none w-full bg-vscode-background md:p-0">
-        <div className="md:border-vscode-border md:border-b-[1px] p-4 md:w-[20%]">
+    return <div className="flex border-b-[1px] fixed justify-between border-vscode-border md:border-none w-full bg-vscode-background md:p-0">
+        <div className="p-4 md:w-[20%]">
             <Link className="flex items-center gap-x-4 mt-1" href={"/"}>
                 <Image src={"/ghost.png"} width={25} height={25} alt="Leonardo Bloise" />
                 <h1 className="font-bold text-vscode-foreground">leonardo.dev</h1>
@@ -30,7 +30,7 @@ export default function Menu({ links }: Props) {
                 {open ? <CloseMenu /> : <HamburguerMenu />}
             </li>
             {links.map(link => {
-                return <li key={link.label} className="hidden md:flex gap-x-4 items-center justify-center opacity-[50%] hover:opacity-100 cursor-pointer ease-in-out">
+                return <li key={link.label} className="hidden cursor-pointer md:flex gap-x-4 items-center justify-center opacity-[50%] hover:opacity-100 cursor-pointer ease-in-out">
                     <a href={link.link} className="flex items-center gap-x-4">
                         {link.image}
                         <span className="text-vscode-foreground text-sm mt-0.5 hidden md:inline">{link.label}</span>
@@ -47,7 +47,7 @@ export default function Menu({ links }: Props) {
         <nav className={`absolute mt-[40px] left-0 bg-vscode-menu-color h-screen w-screen ${open ? "flex" : "hidden"} flex-col items-center pt-8 md:hidden`}>
             <ul className="flex flex-col gap-y-6">
                 {links.map(link => {
-                    return <li key={link.label} className="flex items-center gap-x-3">
+                    return <li key={link.label} className="flex cursor-pointer items-center gap-x-3">
                         <a href={link.link} className="flex items-center gap-x-3">
                             {link.image}
                             <span className="text-vscode-foreground font-bold text-sm mt-0.5">{link.label}</span>

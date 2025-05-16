@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Menu from "@/components/Menu";
 import Image from "next/image";
+import Sidebar from "@/components/Sidebar";
 
 export const metadata: Metadata = {
   title: "ApoloCode36",
@@ -26,6 +27,7 @@ export default function RootLayout({
             link: '/blog'
           }
         ]}/>
+        <Sidebar />
         <div className="content">
           {children}
         </div>
