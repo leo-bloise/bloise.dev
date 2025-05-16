@@ -4,6 +4,8 @@ export type MarkdownElement = {
     value?: string;
     properties?: {
         href?: string;
+        src?: string;
+        alt?: string;
     },
     children?: Array<MarkdownElement>,
     position: {

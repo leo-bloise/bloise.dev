@@ -119,7 +119,7 @@ export default function MarkdownCode({ node, props }: CodeProps) {
     }
     return <Prism
         {...rest}
-        PreTag={'div'}
+        PreTag={typeof children !== 'undefined' ? 'div': 'span'}
         children={text}
         language={captureLanguage(className)}
         style={buildStyles(typeof children !== 'undefined')}
