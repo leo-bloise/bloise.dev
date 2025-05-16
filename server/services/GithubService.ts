@@ -16,7 +16,7 @@ export class GithubService implements IGithubService {
             per_page: qtt,
             page: 1,
         });
-        const reposCache = repos.map(repo => ({
+        const reposDto = repos.map(repo => ({
             createdAt: new Date(repo.created_at!),
             description: repo.description,
             fullname: repo.full_name,
@@ -24,7 +24,7 @@ export class GithubService implements IGithubService {
             url: repo.html_url,
             id: repo.id.toString()
         } as RepositoryDTO));
-        return reposCache;
+        return reposDto;
     }
     async getUsername(): Promise<string> {
         if(this._username) {
