@@ -43,4 +43,29 @@
         background: linear-gradient(90deg, var(--color-vscode-border), var(--color-vscode-background), var(--color-vscode-border));
         background-size: 200%;
     }
+    .body {
+        display: flex;
+        flex-direction: column;
+    }
+    .content {
+        margin-top: 80px;
+        padding: 1rem;
+        max-width: 764px;
+        width: 100%;
+    }
+
+    @media (min-width: 780) {
+        .content {
+            grid-column-start: 2;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 2;
+            margin-top: unset;
+        }
+        .body {
+            display: grid;
+            grid-template-columns: 25% 75%;
+            grid-template-rows: 9vh 95vh;
+        }
+    }
 }

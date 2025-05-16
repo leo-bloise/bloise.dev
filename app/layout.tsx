@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en" 
       className="bg-vscode-background font-gabarito h-[100vh]">
       <body
-        className='antialiased'
+        className='antialiased body'
       >
         <Menu links={[
           {
@@ -26,8 +26,7 @@ export default function RootLayout({
             link: '/blog'
           }
         ]}/>
-        <div className="h-[45px]"></div>
-        <div className="p-5">
+        <div className="content">
           {children}
         </div>
       </body>

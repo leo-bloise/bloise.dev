@@ -9,7 +9,7 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <div className="max-w-[740px]">
-      <div className="p-4 flex flex-col gap-y-6">
+      <div className="p-2 flex flex-col gap-y-6">
         <header className="flex flex-col gap-y-5">
           <Title>Hey, I'm Leo!</Title>
           <Paragraph>
