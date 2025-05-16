@@ -1,3 +1,4 @@
+import { readFileSync } from "fs";
 import { PrismaClient } from "../generated/prisma";
 
 const prisma = new PrismaClient();
@@ -5,10 +6,9 @@ const prisma = new PrismaClient();
 async function main() {
     const article = await prisma.article.create({
         data: {
-            content: `
-                # Markdown file2222
-                Markdown file storing some text that sould be parsed to HTML
-            `,
+            content: readFileSync('test.md', {
+                encoding: 'utf-8'
+            }),
             title: 'Teste article'
         }
     });

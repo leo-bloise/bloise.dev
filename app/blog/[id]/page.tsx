@@ -21,12 +21,9 @@ export default async function Page({ params }: Params) {
     if (!article) {
         return notFound();
     }
-    const content = fs.readFileSync('./test.md', {
-        encoding: 'utf-8'
-    });
     return <main>
         <article>
-            <MarkdownAdapter>{content}</MarkdownAdapter>
+            <MarkdownAdapter>{article.content}</MarkdownAdapter>
         </article>
         <section className="hidden"></section>
     </main>

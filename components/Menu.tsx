@@ -4,6 +4,7 @@ import GithubIcon from "./icons/GithubIcon";
 import HamburguerMenu from "./icons/HamburguerMenu";
 import { ReactNode, useState } from "react";
 import CloseMenu from "./icons/CloseMenu";
+import Link from "next/link";
 
 export type MenuLink = {
     link: string;
@@ -18,9 +19,11 @@ type Props = {
 export default function Menu({ links }: Props) {
     const [open, setOpen] = useState(false);
     return <div className="flex p-4 border-b-[1px] fixed justify-between border-vscode-border w-full bg-vscode-background">
-        <div className="flex items-center gap-x-4">
-            <Image src={"/ghost.png"} width={25} height={25} alt="Leonardo Bloise" />
-            <h1 className="font-bold text-vscode-foreground">leonardo.dev</h1>
+        <div>
+            <Link className="flex items-center gap-x-4 mt-1" href={"/"}>
+                <Image src={"/ghost.png"} width={25} height={25} alt="Leonardo Bloise" />
+                <h1 className="font-bold text-vscode-foreground">leonardo.dev</h1>
+            </Link>
         </div>
         <ul className="flex gap-x-6">
             <li onClick={() => setOpen(old => !old)} className="flex gap-x-4 items-center justify-center opacity-[50%] hover:opacity-100 cursor-pointer ease-in-out md:hidden">
