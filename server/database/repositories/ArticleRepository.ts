@@ -1,11 +1,19 @@
 import { PrismaClient } from "@/generated/prisma";
 import { Article } from "../entities/Article";
 import { IRepository } from "../IRepository";
+import { PageDTO } from "@/server/dto/PageDTO";
 
 export class ArticleRepository implements IRepository<Article, number> {
     constructor(
         private prisma: PrismaClient
     ) {}
+    async getPage(skip: number = 0, take: number = 10): Promise<PageDTO<Article>> {
+        const data = await this.prisma.article.findMany({
+            skip,
+            take
+        })
+        return {data, skip, take};
+    }
     async findById(id: number): Promise<Article | undefined> {
         const article = await this.prisma.article.findFirst({
             where: {
