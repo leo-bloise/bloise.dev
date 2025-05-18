@@ -5,8 +5,8 @@ import Image from "next/image";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata: Metadata = {
-  title: "ApoloCode36",
-  description: "36 is the anwser, we must now look for the question",
+  title: "leonardo.dev",
+  description: "Basically, a web dev blog, but in bloise",
 };
 
 export default function RootLayout({
