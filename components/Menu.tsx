@@ -44,7 +44,7 @@ export default function Menu({ links }: Props) {
                 </a>
             </li>
         </ul>
-        <nav className={`absolute mt-[40px] left-0 bg-vscode-menu-color h-screen w-screen ${open ? "flex" : "hidden"} flex-col items-center pt-8 md:hidden`}>
+        <nav className={`absolute mt-[60px] left-0 bg-vscode-menu-color h-screen w-screen ${open ? "flex" : "hidden"} flex-col items-center pt-8 md:hidden`}>
             <ul className="flex flex-col gap-y-6">
                 {links.map(link => {
                     return <li key={link.label} className="flex cursor-pointer items-center gap-x-3">
